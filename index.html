@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ركن الحلول الرقمية | موقع تجاري</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #1f5a7a;
+      --primary-dark: #13394e;
+      --bg: #f5f8fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.75;
+    }
+    nav {
+      background: var(--card); border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 10;
+    }
+    .nav-inner {
+      max-width: 980px; margin: auto; padding: 14px 18px;
+      display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+    }
+    .brand { font-weight: 800; font-size: 1.15rem; color: var(--primary); }
+    .tabs { display: flex; gap: 8px; }
+    .tab {
+      border: 1px solid var(--border); background: var(--bg); color: var(--text);
+      padding: 8px 14px; border-radius: 10px; cursor: pointer; font-family: inherit; font-weight: 700;
+    }
+    .tab.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .container { max-width: 980px; margin: auto; padding: 26px 18px 60px; }
+    .hero {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff; border-radius: 22px; padding: 34px 24px; margin-bottom: 22px;
+    }
+    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 800; margin-bottom: 8px; }
+    .page { display: none; }
+    .page.active { display: block; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .box {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 18px; padding: 22px; box-shadow: 0 6px 18px rgba(15,23,42,0.04);
+    }
+    .box h2, .box h3 { color: var(--primary); margin-bottom: 8px; }
+    .box p { color: var(--muted); font-size: 0.95rem; }
+    .wa-btn {
+      display: inline-block; margin-top: 14px; background: #16a34a; color: #fff;
+      text-decoration: none; font-weight: 700; padding: 11px 20px; border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <div class="brand">ركن الحلول الرقمية</div>
+      <div class="tabs">
+        <button class="tab active" onclick="openPage('services', this)">الخدمات</button>
+        <button class="tab" onclick="openPage('contact', this)">التواصل</button>
+        <button class="tab" onclick="openPage('location', this)">العنوان</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header class="hero">
+      <h1>ركن الحلول الرقمية</h1>
+      <p>خدمات عملية لتصميم المواقع، تجهيز الأنظمة، والنشر السريع بأعلى موثوقية.</p>
+    </header>
+
+    <section id="services" class="page active">
+      <div class="grid">
+        <div class="box">
+          <h3>1. تصميم وتطوير صفحات الويب</h3>
+          <p>بناء واجهات عصرية متجاوبة مع الجوال والكمبيوتر مع سرعة تحميل عالية وتنظيم واضح.</p>
+        </div>
+        <div class="box">
+          <h3>2. فحص وتهيئة الأنظمة</h3>
+          <p>اختبار الأداء والاستقرار وإعداد البيئات البرمجية والتشغيلية بكفاءة عالية.</p>
+        </div>
+        <div class="box">
+          <h3>3. رفع ونشر المشاريع</h3>
+          <p>إدارة المستودعات وربط النشر السحابي لضمان ظهور المشروع بشكل سليم ومستقر.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="page">
+      <div class="box">
+        <h2>التواصل المباشر</h2>
+        <p>تواصل معنا مباشرة عبر الواتساب لأي طلب أو استفسار:</p>
+        <p style="margin-top: 8px;"><strong>رقم الواتساب:</strong> 0500000000</p>
+        <a class="wa-btn" href="https://wa.me/966500000000" target="_blank" rel="noopener">مراسلة عبر واتساب</a>
+      </div>
+    </section>
+
+    <section id="location" class="page">
+      <div class="box">
+        <h2>العنوان</h2>
+        <p><strong>المدينة والمنطقة:</strong> جدة، المملكة العربية السعودية</p>
+        <p><strong>نطاق الخدمة:</strong> خدمة عن بُعد وحضورية حسب نوع الطلب.</p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function openPage(id, btn) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+</html>
